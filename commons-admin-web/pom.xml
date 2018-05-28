@@ -23,5 +23,27 @@
 
     <build>
         <finalName>commons-admin-web</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <maven.jdbc.driver>com.mysql.jdbc.Driver</maven.jdbc.driver>
+                <maven.jdbc.url>jdbc:mysql://127.0.0.1:3306/d_admin?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false</maven.jdbc.url>
+                <maven.jdbc.username>root</maven.jdbc.username>
+                <maven.jdbc.password>123456</maven.jdbc.password>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>
