@@ -9,7 +9,7 @@
 	</settings>
 	
 	<typeAliases>
-		<package name="com.jn.common.entity.mysql"/>
+		<package name="com.github.commons.admin.domain.entity"/>
 	</typeAliases>
 	
 </configuration>

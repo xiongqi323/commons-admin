@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.commons.admin.dao.SystemLogMapper">
+  <resultMap id="BaseResultMap" type="com.github.commons.admin.domain.SystemLog">
+    <id column="id" jdbcType="BIGINT" property="id" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_system_log
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.github.commons.admin.domain.SystemLog">
+    insert into t_system_log (id)
+    values (#{id,jdbcType=BIGINT})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id
+    from t_system_log
+  </select>
+</mapper>

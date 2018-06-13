@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.commons.admin.dao.SystemJobMapper">
+  <resultMap id="BaseResultMap" type="com.github.commons.admin.domain.SystemJob">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="job_name" jdbcType="VARCHAR" property="jobName" />
+    <result column="job_class_name" jdbcType="VARCHAR" property="jobClassName" />
+    <result column="job_status" jdbcType="TINYINT" property="jobStatus" />
+    <result column="cron" jdbcType="VARCHAR" property="cron" />
+    <result column="pre_fire_time" jdbcType="TIMESTAMP" property="preFireTime" />
+    <result column="next_fire_time" jdbcType="TIMESTAMP" property="nextFireTime" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="modified" jdbcType="TIMESTAMP" property="modified" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_system_job
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.github.commons.admin.domain.SystemJob">
+    insert into t_system_job (id, job_name, job_class_name, 
+      job_status, cron, pre_fire_time, 
+      next_fire_time, start_time, end_time, 
+      created, modified)
+    values (#{id,jdbcType=BIGINT}, #{jobName,jdbcType=VARCHAR}, #{jobClassName,jdbcType=VARCHAR}, 
+      #{jobStatus,jdbcType=TINYINT}, #{cron,jdbcType=VARCHAR}, #{preFireTime,jdbcType=TIMESTAMP}, 
+      #{nextFireTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{created,jdbcType=TIMESTAMP}, #{modified,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.github.commons.admin.domain.SystemJob">
+    update t_system_job
+    set job_name = #{jobName,jdbcType=VARCHAR},
+      job_class_name = #{jobClassName,jdbcType=VARCHAR},
+      job_status = #{jobStatus,jdbcType=TINYINT},
+      cron = #{cron,jdbcType=VARCHAR},
+      pre_fire_time = #{preFireTime,jdbcType=TIMESTAMP},
+      next_fire_time = #{nextFireTime,jdbcType=TIMESTAMP},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      created = #{created,jdbcType=TIMESTAMP},
+      modified = #{modified,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, job_name, job_class_name, job_status, cron, pre_fire_time, next_fire_time, 
+    start_time, end_time, created, modified
+    from t_system_job
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, job_name, job_class_name, job_status, cron, pre_fire_time, next_fire_time, 
+    start_time, end_time, created, modified
+    from t_system_job
+  </select>
+</mapper>
