@@ -1,6 +1,6 @@
 package com.github.commons.admin.dao;
 
-import com.github.commons.admin.domain.SystemRoleMenuRelation;
+import com.github.commons.admin.domain.entity.SystemRoleMenuRelation;
 import java.util.List;
 
 public interface SystemRoleMenuRelationMapper {

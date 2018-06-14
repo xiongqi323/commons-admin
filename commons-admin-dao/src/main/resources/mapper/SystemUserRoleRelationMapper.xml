@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.commons.admin.dao.SystemUserRoleRelationMapper">
-  <resultMap id="BaseResultMap" type="com.github.commons.admin.domain.SystemUserRoleRelation">
+  <resultMap id="BaseResultMap" type="com.github.commons.admin.domain.entity.SystemUserRoleRelation">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="role_id" jdbcType="BIGINT" property="roleId" />
@@ -12,13 +12,13 @@
     delete from t_system_user_role_relation
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.github.commons.admin.domain.SystemUserRoleRelation">
+  <insert id="insert" parameterType="com.github.commons.admin.domain.entity.SystemUserRoleRelation">
     insert into t_system_user_role_relation (id, user_id, role_id, 
       created, modified)
     values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{roleId,jdbcType=BIGINT}, 
       #{created,jdbcType=TIMESTAMP}, #{modified,jdbcType=TIMESTAMP})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.github.commons.admin.domain.SystemUserRoleRelation">
+  <update id="updateByPrimaryKey" parameterType="com.github.commons.admin.domain.entity.SystemUserRoleRelation">
     update t_system_user_role_relation
     set user_id = #{userId,jdbcType=BIGINT},
       role_id = #{roleId,jdbcType=BIGINT},

@@ -1,6 +1,6 @@
 package com.github.commons.admin.dao;
 
-import com.github.commons.admin.domain.SystemLog;
+import com.github.commons.admin.domain.entity.SystemLog;
 import java.util.List;
 
 public interface SystemLogMapper {

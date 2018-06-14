@@ -42,7 +42,7 @@
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-        <property name="basePackage" value="com.bowang.bsas.dao"/>
+        <property name="basePackage" value="com.github.commons.admin.dao"/>
     </bean>
 
     <!--事务管理器-->

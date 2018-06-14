@@ -29,15 +29,9 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
-
-        <plugins>
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.5</version>
-            </plugin>
-        </plugins>
-
+        <filters>
+            <filter>src/main/resources/application-${project.profile}.properties</filter>
+        </filters>
     </build>
 
     <profiles>
@@ -47,10 +41,19 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <maven.jdbc.driver>com.mysql.jdbc.Driver</maven.jdbc.driver>
-                <maven.jdbc.url>jdbc:mysql://127.0.0.1:3306/d_admin?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false</maven.jdbc.url>
-                <maven.jdbc.username>root</maven.jdbc.username>
-                <maven.jdbc.password>123456</maven.jdbc.password>
+                <project.profile>dev</project.profile>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <project.profile>test</project.profile>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <project.profile>prod</project.profile>
             </properties>
         </profile>
     </profiles>

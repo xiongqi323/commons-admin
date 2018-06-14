@@ -1,7 +1,6 @@
 package com.github.commons.admin.dao;
 
 import com.github.commons.admin.domain.entity.SystemJob;
-
 import java.util.List;
 
 public interface SystemJobMapper {

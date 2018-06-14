@@ -1,6 +1,6 @@
 package com.github.commons.admin.dao;
 
-import com.github.commons.admin.domain.SystemMenu;
+import com.github.commons.admin.domain.entity.SystemMenu;
 import java.util.List;
 
 public interface SystemMenuMapper {

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" shutdownHook="disable">
+    <Properties>
+        <Property name="pattern_layout">%d [%t] %-5level %logger{36} - %msg%n</Property>
+        <Property name="log_home">/data/logs/commons-admin</Property>
+        <Property name="file_name">app</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${pattern_layout}"/>
+        </Console>
+
+        <RollingRandomAccessFile name="file"
+                                 fileName="${log_home}/${file_name}.log"
+                                 filePattern="${log_home}/${file_name}-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${pattern_layout}" charset="UTF-8"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true"/>
+                <SizeBasedTriggeringPolicy size="500 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+    <Loggers>
+        <!--<Logger name="org.springframework" level="warn"/>-->
+
+        <Root level="info" includeLocation="true">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="file"/>
+        </Root>
+    </Loggers>
+</Configuration>

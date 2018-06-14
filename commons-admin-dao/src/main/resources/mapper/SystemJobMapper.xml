@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.commons.admin.dao.SystemJobMapper">
-  <resultMap id="BaseResultMap" type="com.github.commons.admin.domain.SystemJob">
+  <resultMap id="BaseResultMap" type="com.github.commons.admin.domain.entity.SystemJob">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="job_name" jdbcType="VARCHAR" property="jobName" />
     <result column="job_class_name" jdbcType="VARCHAR" property="jobClassName" />
@@ -18,7 +18,7 @@
     delete from t_system_job
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.github.commons.admin.domain.SystemJob">
+  <insert id="insert" parameterType="com.github.commons.admin.domain.entity.SystemJob">
     insert into t_system_job (id, job_name, job_class_name, 
       job_status, cron, pre_fire_time, 
       next_fire_time, start_time, end_time, 
@@ -28,7 +28,7 @@
       #{nextFireTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
       #{created,jdbcType=TIMESTAMP}, #{modified,jdbcType=TIMESTAMP})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.github.commons.admin.domain.SystemJob">
+  <update id="updateByPrimaryKey" parameterType="com.github.commons.admin.domain.entity.SystemJob">
     update t_system_job
     set job_name = #{jobName,jdbcType=VARCHAR},
       job_class_name = #{jobClassName,jdbcType=VARCHAR},

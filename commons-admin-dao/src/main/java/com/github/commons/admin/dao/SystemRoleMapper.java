@@ -1,6 +1,6 @@
 package com.github.commons.admin.dao;
 
-import com.github.commons.admin.domain.SystemRole;
+import com.github.commons.admin.domain.entity.SystemRole;
 import java.util.List;
 
 public interface SystemRoleMapper {

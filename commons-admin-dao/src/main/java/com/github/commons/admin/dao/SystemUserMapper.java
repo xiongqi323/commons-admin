@@ -1,6 +1,6 @@
 package com.github.commons.admin.dao;
 
-import com.github.commons.admin.domain.SystemUser;
+import com.github.commons.admin.domain.entity.SystemUser;
 import java.util.List;
 
 public interface SystemUserMapper {

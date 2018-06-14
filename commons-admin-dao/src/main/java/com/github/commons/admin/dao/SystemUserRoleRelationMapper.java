@@ -1,6 +1,6 @@
 package com.github.commons.admin.dao;
 
-import com.github.commons.admin.domain.SystemUserRoleRelation;
+import com.github.commons.admin.domain.entity.SystemUserRoleRelation;
 import java.util.List;
 
 public interface SystemUserRoleRelationMapper {
